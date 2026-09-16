@@ -1,0 +1,362 @@
+{
+  "contract_version": "0.2.1",
+  "project": {
+    "project_id": "fixture-family",
+    "revision": 1,
+    "assets": [],
+    "source_locale": "zh-CN",
+    "source_type": "ai",
+    "rights_scope": {
+      "process": false,
+      "external_upload": false,
+      "visual_adaptation": false,
+      "voice_use": false,
+      "public_demo": false,
+      "evidence_refs": [
+        "原创文字fixture，无上传素材"
+      ]
+    },
+    "input_hashes": [],
+    "evidence": "fixture"
+  },
+  "story": {
+    "characters": [
+      {
+        "character_id": "outsider",
+        "source_description": "成年入赘成员",
+        "evidence_refs": [
+          "fixture-script"
+        ]
+      },
+      {
+        "character_id": "elder",
+        "source_description": "成年家族掌权者",
+        "evidence_refs": [
+          "fixture-script"
+        ]
+      }
+    ],
+    "relations": [
+      {
+        "from": "elder",
+        "to": "outsider",
+        "relation": "排斥姻亲",
+        "evidence_refs": [
+          "fixture-script"
+        ]
+      }
+    ],
+    "beats": [
+      {
+        "beat_id": "exclusion",
+        "source_fact": "掌权者将姻亲挡在宗祠外",
+        "evidence_refs": [
+          "fixture-script"
+        ]
+      }
+    ],
+    "invariants": [
+      "外人受到排斥并产生反抗动机"
+    ],
+    "unknowns": [
+      "无真实视频；未验证文化接受度"
+    ]
+  },
+  "locale": {
+    "locale": "en-US",
+    "audience_brief": "当代家庭冲突观众，待审阅",
+    "setting": "家族私人晚宴",
+    "register": "contemporary conversational",
+    "culture_decisions": [
+      "宗祠资格改为餐桌席位排斥"
+    ],
+    "review_status": "unreviewed",
+    "revision": 1
+  },
+  "characters": [
+    {
+      "character_id": "outsider",
+      "source_binding": [
+        "fixture-script"
+      ],
+      "target_ref_ids": [],
+      "appearance_brief": "虚构成年角色；参考图待创作者批准",
+      "wardrobe": "晚宴正装候选",
+      "voice_ref": null,
+      "revision": 1
+    },
+    {
+      "character_id": "elder",
+      "source_binding": [
+        "fixture-script"
+      ],
+      "target_ref_ids": [],
+      "appearance_brief": "虚构成年角色；参考图待创作者批准",
+      "wardrobe": "晚宴正装候选",
+      "voice_ref": null,
+      "revision": 1
+    }
+  ],
+  "shots": [
+    {
+      "shot_id": "s1",
+      "source_in_ms": 0,
+      "source_out_ms": 8000,
+      "character_ids": [
+        "elder"
+      ],
+      "dialogue_ids": [
+        "d1"
+      ],
+      "visual_evidence": [
+        "文字fixture，无识别结果"
+      ],
+      "ingest_mode": "fixture"
+    },
+    {
+      "shot_id": "s2",
+      "source_in_ms": 8000,
+      "source_out_ms": 16000,
+      "character_ids": [
+        "outsider"
+      ],
+      "dialogue_ids": [
+        "d2"
+      ],
+      "visual_evidence": [
+        "文字fixture，无识别结果"
+      ],
+      "ingest_mode": "fixture"
+    },
+    {
+      "shot_id": "s3",
+      "source_in_ms": 16000,
+      "source_out_ms": 24000,
+      "character_ids": [
+        "elder"
+      ],
+      "dialogue_ids": [
+        "d1"
+      ],
+      "visual_evidence": [
+        "文字fixture，无识别结果"
+      ],
+      "ingest_mode": "fixture"
+    }
+  ],
+  "changes": [
+    {
+      "change_id": "c1",
+      "source_refs": [
+        "fixture-script"
+      ],
+      "source_meaning": "你只是个赘婿，没资格进这个门",
+      "target_change": "家族晚宴拒绝入席",
+      "reason": "保留排斥与权力冲突，替换具体仪式",
+      "strategy": "rebuild",
+      "preserved_beats": [
+        "exclusion"
+      ],
+      "affected_assets": [
+        "s1",
+        "s2",
+        "s3",
+        "l1",
+        "l2"
+      ],
+      "approval": {
+        "status": "proposed",
+        "approver": null,
+        "approved_at": null,
+        "revision": 1
+      }
+    }
+  ],
+  "lines": [
+    {
+      "line_id": "l1",
+      "source_dialogue_ids": [
+        "d1"
+      ],
+      "speaker_character_id": "elder",
+      "target_text": "You married into this family. That doesn't give you a seat at this table.",
+      "emotion": "cold dismissal",
+      "pronunciation": [],
+      "duration_budget_ms": 8000,
+      "actual_duration_ms": null,
+      "revision": 1
+    },
+    {
+      "line_id": "l2",
+      "source_dialogue_ids": [
+        "d2"
+      ],
+      "speaker_character_id": "outsider",
+      "target_text": "Then I'll make my own place.",
+      "emotion": "restrained defiance",
+      "pronunciation": [],
+      "duration_budget_ms": 8000,
+      "actual_duration_ms": null,
+      "revision": 1
+    }
+  ],
+  "plans": [
+    {
+      "shot_id": "s1",
+      "revision": 1,
+      "route": "regenerate",
+      "target_character_revisions": [
+        {
+          "kind": "character",
+          "id": "elder",
+          "revision": 1
+        }
+      ],
+      "setting_revision": {
+        "kind": "locale",
+        "id": "en-US",
+        "revision": 1
+      },
+      "line_revisions": [
+        {
+          "kind": "line",
+          "id": "l1",
+          "revision": 1
+        }
+      ],
+      "duration_policy": "fit_audio",
+      "constraints": [
+        "fixture only; no generation permission"
+      ],
+      "provider_capabilities": {
+        "provider": "fixture-mock",
+        "model_version": "offline-v1",
+        "evidence": "mock",
+        "async": "supported",
+        "poll": "supported",
+        "cancel": "unsupported",
+        "idempotency": "unsupported",
+        "request_lookup": "unsupported",
+        "native_audio_driven_video": "supported",
+        "audio_input": "supported",
+        "multi_character": "unknown",
+        "dialogue_editing": "unknown",
+        "requires_upload": "unsupported",
+        "max_input_duration_ms": 10000,
+        "max_character_references": 2,
+        "resolutions": [
+          "640x360"
+        ],
+        "job_retention_seconds": null,
+        "artifact_retention_seconds": null
+      }
+    },
+    {
+      "shot_id": "s2",
+      "revision": 1,
+      "route": "regenerate",
+      "target_character_revisions": [
+        {
+          "kind": "character",
+          "id": "outsider",
+          "revision": 1
+        }
+      ],
+      "setting_revision": {
+        "kind": "locale",
+        "id": "en-US",
+        "revision": 1
+      },
+      "line_revisions": [
+        {
+          "kind": "line",
+          "id": "l2",
+          "revision": 1
+        }
+      ],
+      "duration_policy": "fit_audio",
+      "constraints": [
+        "fixture only; no generation permission"
+      ],
+      "provider_capabilities": {
+        "provider": "fixture-mock",
+        "model_version": "offline-v1",
+        "evidence": "mock",
+        "async": "supported",
+        "poll": "supported",
+        "cancel": "unsupported",
+        "idempotency": "unsupported",
+        "request_lookup": "unsupported",
+        "native_audio_driven_video": "supported",
+        "audio_input": "supported",
+        "multi_character": "unknown",
+        "dialogue_editing": "unknown",
+        "requires_upload": "unsupported",
+        "max_input_duration_ms": 10000,
+        "max_character_references": 2,
+        "resolutions": [
+          "640x360"
+        ],
+        "job_retention_seconds": null,
+        "artifact_retention_seconds": null
+      }
+    },
+    {
+      "shot_id": "s3",
+      "revision": 1,
+      "route": "regenerate",
+      "target_character_revisions": [
+        {
+          "kind": "character",
+          "id": "elder",
+          "revision": 1
+        }
+      ],
+      "setting_revision": {
+        "kind": "locale",
+        "id": "en-US",
+        "revision": 1
+      },
+      "line_revisions": [
+        {
+          "kind": "line",
+          "id": "l1",
+          "revision": 1
+        }
+      ],
+      "duration_policy": "fit_audio",
+      "constraints": [
+        "fixture only; no generation permission"
+      ],
+      "provider_capabilities": {
+        "provider": "fixture-mock",
+        "model_version": "offline-v1",
+        "evidence": "mock",
+        "async": "supported",
+        "poll": "supported",
+        "cancel": "unsupported",
+        "idempotency": "unsupported",
+        "request_lookup": "unsupported",
+        "native_audio_driven_video": "supported",
+        "audio_input": "supported",
+        "multi_character": "unknown",
+        "dialogue_editing": "unknown",
+        "requires_upload": "unsupported",
+        "max_input_duration_ms": 10000,
+        "max_character_references": 2,
+        "resolutions": [
+          "640x360"
+        ],
+        "job_retention_seconds": null,
+        "artifact_retention_seconds": null
+      }
+    }
+  ],
+  "revision": 1,
+  "approval": {
+    "status": "proposed",
+    "approver": null,
+    "approved_at": null,
+    "revision": 1
+  }
+}

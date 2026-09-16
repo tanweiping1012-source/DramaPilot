@@ -1,0 +1,20 @@
+name: Offline checks
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  offline:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.15.0'
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: npm test
+      - run: git diff --exit-code -- dist
+      - run: npm run demo
+      - run: npm pack --dry-run

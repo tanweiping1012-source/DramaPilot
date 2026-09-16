@@ -1,0 +1,11 @@
+node_modules/
+.runtime/
+runs/
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+planning-private/
+
+dist/
