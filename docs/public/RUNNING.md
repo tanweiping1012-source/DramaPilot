@@ -69,6 +69,12 @@ DSH_HOME="$PWD/.runtime/dsh-manual-home" PATH="$PWD/.runtime/dsh-install/node_mo
 
 公开仓库同时保留源码与已编译 `dist/`，CI 检查二者同步；Release 的 `.tgz` 包也包含已编译入口。源码路径的 smoke 和发布包安装结果在[验证记录](VALIDATION.md)中分开报告。npm 注册表尚未发布 `dramapilot`，不要使用 `npm install dramapilot` 来安装本项目。
 
+下载 [Release](https://github.com/tanweiping1012-source/DramaPilot/releases/tag/v0.2.0-engineering.1) 中的 tgz 后，也可以用本地包路径安装（替换最后的文件位置）：
+
+```bash
+DSH_HOME="$PWD/.runtime/dsh-package-home" PATH="$PWD/.runtime/dsh-install/node_modules/.bin:$PATH" .runtime/dsh-install/node_modules/.bin/dsh plugin --profile dramapilot add /absolute/path/to/dramapilot-0.2.0.tgz
+```
+
 ## 状态与费用
 
 - `needs_review`：已收集并核实产物，仍需内容审阅。
