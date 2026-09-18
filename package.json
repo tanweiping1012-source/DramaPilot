@@ -13,11 +13,14 @@
     "demo": "npm run build && node dist/scripts/demo.js",
     "smoke:dsh": "npm run build && node scripts/dsh-smoke.mjs",
     "fixture:media": "npm run build && node dist/fixtures/media/generate.js",
-    "prepack": "npm run build"
+    "prepack": "npm run build",
+    "demo:workflow": "npm run build && node dist/scripts/workflow-demo.js"
   },
   "exports": {
     ".": "./dist/src/dsh/index.js",
-    "./contracts": "./dist/src/contracts/index.js"
+    "./contracts": "./dist/src/contracts/index.js",
+    "./workflow-draft": "./dist/src/contracts/workflow-draft.js",
+    "./workflow-fixture": "./dist/src/contracts/workflow-fixture.js"
   },
   "files": [
     "dist",

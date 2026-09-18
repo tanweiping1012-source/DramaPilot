@@ -1,6 +1,6 @@
 # 开发路线图与任务
 
-更新：2026-09-17。**v0.3是新链路的产品方案版本；当前公开软件仍为0.2.0工程预览，运行契约0.2.1，DSH固定0.1.5-rc.2。** 下列新增功能均未宣布实现；建立Issue不等于开始运行或验收通过。
+更新：2026-09-18。**v0.3是新链路的产品方案版本；当前公开软件仍为0.2.0工程预览，运行契约0.2.1，DSH固定0.1.5-rc.2。** DP-N1已有独立实验契约实现，其余任务按下表推进；元数据校验不代表全链路通过。
 
 ## 下一里程碑
 
@@ -16,8 +16,8 @@
 
 | GitHub任务 | 交付 | 责任角色 | 前置依赖 | 状态 |
 |---|---|---|---|---|
-| [DP-N1 · #1](https://github.com/tanweiping1012-source/DramaPilot/issues/1) | 新工作流契约草案与0.2.1迁移边界 | A + Owner | 可先开始契约评审 | planned / ready |
-| [DP-N2 · #2](https://github.com/tanweiping1012-source/DramaPilot/issues/2) | 人工辅助导入源资产包与可定位证据 | A | [DP-N1](https://github.com/tanweiping1012-source/DramaPilot/issues/1) | planned；待前置实现 |
+| [DP-N1 · #1](https://github.com/tanweiping1012-source/DramaPilot/issues/1) | 新工作流契约草案与0.2.1迁移边界 | A + Owner | 独立153项通过，完整链路仍待后续任务 | done（仅draft） |
+| [DP-N2 · #2](https://github.com/tanweiping1012-source/DramaPilot/issues/2) | 人工辅助导入源资产包与可定位证据 | A | [DP-N1](https://github.com/tanweiping1012-source/DramaPilot/issues/1) | ready；下一项 |
 | [DP-N3 · #3](https://github.com/tanweiping1012-source/DramaPilot/issues/3) | 目标文化改编与独立目标分镜 | A | [DP-N1](https://github.com/tanweiping1012-source/DramaPilot/issues/1)、[DP-N2](https://github.com/tanweiping1012-source/DramaPilot/issues/2) | planned；待前置实现 |
 | [DP-N4 · #4](https://github.com/tanweiping1012-source/DramaPilot/issues/4) | 本地2D白模预演与目标对白时长检查 | B | [DP-N1](https://github.com/tanweiping1012-source/DramaPilot/issues/1)、[DP-N2](https://github.com/tanweiping1012-source/DramaPilot/issues/2)、[DP-N3](https://github.com/tanweiping1012-source/DramaPilot/issues/3) | planned；可先准备自编样例 |
 | [DP-N5 · #5](https://github.com/tanweiping1012-source/DramaPilot/issues/5) | 制作包冻结、可信确认与依赖失效 | A + Owner | [DP-N1](https://github.com/tanweiping1012-source/DramaPilot/issues/1)、[DP-N3](https://github.com/tanweiping1012-source/DramaPilot/issues/3) | planned；待前置实现 |
@@ -32,10 +32,10 @@ DP-N5在某镜头需要白模时，还需DP-N4提供对应的有效预演；不�
 
 ## Owner接下来要做什么
 
-1. 组织A的独立契约草案评审，B给预演/声音/媒体约束，C给迁移与权限反例；冻结明确版本和提交后再接入运行代码。
+1. DP-N1独立draft已通过固定提交验收，下一项推进DP-N2本地文件与人工资料导入。旧0.2.1保持冻结；接入运行前继续评审契约变化。
 2. 按源资产、目标分镜、预演和确认的依赖集成，维护任务状态及阻塞；源事实不被目标改写覆盖。
 3. 给C固定集成提交与完整有效样例，核对独立结果、0.2.1兼容、恢复和局部修复。
-4. 发布经验证的新工程包和演示，继续公开实际能力与未验证项；代码变化前不把本次文档更新伪装为新软件Release。
+4. 发布经验证的新工程包和演示，继续公开实际能力与未验证项；本次draft随最新源码提供，保留旧工程预览Release不变。
 5. 后续取得真实素材/费用范围后，重新报价并组织三镜头实验、20–40秒三层场景与一次修复。DSH市场提交前单独复核安装、规则和展示证据；市场收录与推广不算本次已完成事项。
 
 A负责核心/契约/DSH及根依赖，B负责媒体/provider，C负责独立验收。开发团队分工与产品是否运行DSH子agent分别记证据。

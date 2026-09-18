@@ -1,12 +1,12 @@
 # 新链路架构增量（设计提案）
 
-更新于2026-09-17。方案v0.3，**当前运行契约仍为0.2.1**。以下新增名称是拟议数据对象和行为，尚未实现，不是现有API。DSH固定0.1.5-rc.2 / fb2c4b9e698e30edb738bca4cf0618587db7d203。
+更新于2026-09-17。方案v0.3，**当前运行契约仍为0.2.1**。完整链路仍是设计方案；其中DP-N1已有独立`0.3.0-draft.1`实验契约与元数据校验，实际API及限制见[WORKFLOW_DRAFT](WORKFLOW_DRAFT.md)。它未接入旧DSH工具，不赋予执行权限。DSH固定0.1.5-rc.2 / fb2c4b9e698e30edb738bca4cf0618587db7d203。
 
 ## 已有实现与差距
 
 | 已有模块 | 可以继续使用 | 新链路缺口 |
 |---|---|---|
-| contracts / adaptation | StoryBible、LocaleBible、CharacterBible、AdaptationMap、引用版本与不可变保存 | 源证据定位、场景/道具实体、源/目标分镜分离与制作包 |
+| contracts / adaptation | StoryBible、LocaleBible、CharacterBible、AdaptationMap、引用版本与不可变保存 | 新draft已表达源证据、场景/道具、独立目标分镜和制作包元数据；持久导入与执行仍待接入 |
 | ingest | 工作区内本地文件路径约束与hash | 尚无自动视频理解、对白转写、镜头解析或人物关联 |
 | orchestration / providers | SQLite任务、预算预留、语义请求去重、模拟故障与六方法provider | 分阶段状态与制作包确认；真实供应商未接入 |
 | media | 本地probe/hash、帧时间线、字幕、显式音轨合成与取消 | 动作提取、白模重建、预演编辑及白模作为生成控制 |

@@ -1,10 +1,23 @@
 # 工程验证记录
 
-验证日期：2026-09-16。发布形态为离线工程预览，应用包 0.2.0，契约 0.2.1；Node 24.15.0、macOS arm64。DSH 固定 0.1.5-rc.2。以下计数分别来自不同测试入口，不相加为“产品成功率”。
+更新：2026-09-18；旧工程基线验证日期：2026-09-16。发布形态为离线工程预览，应用包 0.2.0，契约 0.2.1；Node 24.15.0、macOS arm64。DSH 固定 0.1.5-rc.2。以下计数分别来自不同测试入口，不相加为“产品成功率”。
 
-## 新链路的验证边界
+## 新工作流 draft 验收（2026-09-17 / 18）
 
-2026-09-16 新增的 v0.3 是方案版本。本页记录的是 0.2.0 工程预览 / 0.2.1 契约的既有验证，不能用来证明源资产重建、独立目标分镜、白模预演、制作包冻结或发布确认已经通过。新链路验收另按[路线图](ROADMAP.md)执行并记录固定提交；本轮文档调整没有重新生成媒体。
+独立实验契约 `0.3.0-draft.1` 已通过 DP-N1 范围验收，随最新源码提供，未替换 `0.2.1` 运行契约。旧 `v0.2.0-engineering.1` Release 不包含新模块，且未被覆盖。见[运行入口和边界](WORKFLOW_DRAFT.md)。
+
+| 检查 | 结果 | 证明范围 |
+|---|---|---|
+| 完整单测 | 78/78 通过 | 既有36项回归及42项新draft检查 |
+| 独立公开接口验收 | 153 pass / 0 fail / 2 not_run / 0 blocked | 源证据、独立目标分镜、预演元数据、制作包、时长及引用约束、只读迁移审计 |
+| 集成复跑 | 78/78；独立153项同样通过 | Owner合入独立测试后复跑；计数不与独立结果相加 |
+| 新draft实际打包安装 | 通过 | tgz在独立consumer目录仅安装生产依赖；新旧export均从已安装包解析，新旧编译Demo可运行，无媒体生成 |
+
+独立验收先构造完整有效输入，再单独修改一个依赖，曾发现“跳过视觉预演时，两个分别fits的对白可无意重叠”的缺陷。修复后，目标镜头必须声明重叠意图，制作包直接检查声音区间；预演不能覆盖镜头策略。失败记录没有被改写为通过。
+
+两个 not_run 组分别是：可信主机授权/新DSH阶段/最终发布许可，以及真实源片理解/预演渲染/配音视频生成/自动3D/内容质量。这些不属于DP-N1；DP-N7全链路验收仍未完成。`production_candidate`测试输入只证明元数据约束，不证明媒体存在或已获准制作。
+
+下面是9月16日旧工程基线的历史结果，DSH及真实媒体处理没有因draft通过而获得新的验证结论。
 
 ## 已运行
 
@@ -55,9 +68,10 @@ npm test
 npm run demo
 ```
 
-媒体与 DSH 命令见 [RUNNING.md](RUNNING.md)。独立验收使用新输出目录，命令如下。commit 参数用于把证据绑定到当前检出的公开版本；它不是通过判断依据。
+媒体与 DSH 命令见 [RUNNING.md](RUNNING.md)。独立验收使用新输出目录，命令如下。commit 参数用于绑定固定代码版本；新draft驱动还检查生产代码与该提交一致，验收结果由正反例断言决定。
 
 ```bash
+node tests/acceptance/workflow-draft.mjs . .runtime/independent-workflow "$(git rev-parse HEAD)"
 node tests/acceptance/episode-revisions.mjs . .runtime/independent-episode "$(git rev-parse HEAD)"
 node tests/acceptance/recovery.mjs . .runtime/independent-recovery "$(git rev-parse HEAD)"
 ```

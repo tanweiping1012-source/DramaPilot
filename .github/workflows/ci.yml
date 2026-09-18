@@ -17,4 +17,6 @@ jobs:
       - run: npm test
       - run: git diff --exit-code -- dist
       - run: npm run demo
+      - run: npm run demo:workflow
+      - run: node tests/acceptance/workflow-draft.mjs . .runtime/independent-workflow "$(git rev-parse HEAD)"
       - run: npm pack --dry-run
