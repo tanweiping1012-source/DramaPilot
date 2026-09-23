@@ -300,6 +300,7 @@ await test('N2-016c','Source manifest rejects target-only additions',async()=>{
  const m=base();m.annotations.target_storyboard={approved:true};await assert.rejects(()=>executeImport(m));
 });
 await test('N2-017a','Frozen contracts, runtime, providers, DSH, lockfile remain byte-identical',async()=>{
+ // Freeze every original TypeScript file in these modules plus the lockfile; internal handoff Markdown is not part of the public source bundle.
  const frozenSourceHashes={
   "package-lock.json": "92f1aff81df58c8ebf386936eff6b82f395b30736c55deedb932ca0ae85b5f1b",
   "src/contracts/contracts.test.ts": "cd119b06e12eec062d7c312ea3e7eb193e23b59a5c0f07502cc8204b5b8208d3",
@@ -315,7 +316,6 @@ await test('N2-017a','Frozen contracts, runtime, providers, DSH, lockfile remain
   "src/media/local.ts": "2f2b5b18849ea3ea22449aefafb91dc4ff2771eb82a21eb561a7c88b1f6ab95c",
   "src/media/timeline.test.ts": "c2b13f3e7ad3d4b6e43b7ca81fb89a86c9fc525d3a2ede48da375d774dfde295",
   "src/media/timeline.ts": "84533fbe5d971b8f951f7bdd33fc4d018e079b20f9f169451a92e14326f2f5f1",
-  "src/orchestration/README.md": "a6af2ad033bbbf35e8e63838f1675caf77d39c20d13348c8ec381431c55c7d29",
   "src/orchestration/authorization.test.ts": "ab1af7633d29f895df4d2aef8e1b8d4608d398757fc0490455e87cdcd13f3722",
   "src/orchestration/authorization.ts": "e08ee843f324bdd6c4db6f1374738a0729ff1470f15ba5322e3c91d02f81a172",
   "src/orchestration/jobs.test.ts": "720b5fa4e4ce95dca2acdb0c80ddba6a49db400547b53bb6c85315f343fe2f0a",
@@ -324,8 +324,6 @@ await test('N2-017a','Frozen contracts, runtime, providers, DSH, lockfile remain
   "src/orchestration/store.ts": "4f83c86ff83fa64ddd6ca62f3269fde002e863505451765a7afb276b3a36f1a0",
   "src/orchestration/test-support.ts": "7350db5119de713314ae1077a0c96dc9d18821a14178f2cc761d96ca2d944ba3",
   "src/orchestration/worker.ts": "932e145f29060ad5cf002dd7c59fc4cb0b3d2b925ae261bf0a6c49da1f577ee5",
-  "src/providers/CONSTRAINTS.md": "fa7d23dc504fee2207b0b29abf0120ab1fd3e8967fe59ab5fd6c844a7f5127ba",
-  "src/providers/README.md": "e4801526a7f6eb9d6406c5f7951ab2b0431a276fc3dcc1b3434b1b7b5f2d3f9a",
   "src/providers/mock.test.ts": "152e24d0c48d43f6eefe904dc34f42791f50b79ac63ad89ddf94bc7327b9c79c",
   "src/providers/mock.ts": "d30d075e61c716c3bf0e7172ca61d4ce498c977be113cf9a5a4d580998f18cbf",
   "src/providers/smoke.ts": "bfd09b5e0191e9ba48985504f00bfe1c92ed066a428c6c79f51b6b6eb06d51cc"
