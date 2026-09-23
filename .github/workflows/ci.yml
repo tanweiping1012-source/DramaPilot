@@ -13,10 +13,12 @@ jobs:
         with:
           node-version: '24.15.0'
           cache: npm
+      - run: sudo apt-get update && sudo apt-get install -y ffmpeg
       - run: npm ci --ignore-scripts
       - run: npm test
       - run: git diff --exit-code -- dist
       - run: npm run demo
       - run: npm run demo:workflow
       - run: node tests/acceptance/workflow-draft.mjs . .runtime/independent-workflow "$(git rev-parse HEAD)"
+      - run: node tests/acceptance/assisted-ingest.mjs . .runtime/independent-ingest "$(git rev-parse HEAD)"
       - run: npm pack --dry-run

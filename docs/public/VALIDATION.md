@@ -1,6 +1,22 @@
 # 工程验证记录
 
-更新：2026-09-18；旧工程基线验证日期：2026-09-16。发布形态为离线工程预览，应用包 0.2.0，契约 0.2.1；Node 24.15.0、macOS arm64。DSH 固定 0.1.5-rc.2。以下计数分别来自不同测试入口，不相加为“产品成功率”。
+更新：2026-09-23；旧工程基线验证日期：2026-09-16。发布形态为离线工程预览，应用包 0.2.0，契约 0.2.1；Node 24.15.0、macOS arm64。DSH 固定 0.1.5-rc.2。以下计数分别来自不同测试入口，不相加为“产品成功率”。
+
+## 本地源资料导入验收（2026-09-23）
+
+DP-N2新增独立人工辅助导入模块，不改变旧运行契约、既有DSH工具或draft字段。见[完整运行说明](ASSISTED_INGEST.md)。
+
+| 检查 | 结果 | 证明范围 |
+|---|---|---|
+| 完整单测 | 82/82 通过 | 既有78项加4项SRT解析/原文定位回归 |
+| 独立源资料验收 | 99 pass / 0 fail / 3 not_run / 0 blocked | 真实MP4/MOV、独立probe/hash、SRT与引用、路径/文件限制、HTML转义、取消、快照及实际CLI |
+| Owner本地演示 | 7秒 / 175帧视频、剧本、SRT导入成功 | 视频为自编色块/测试音，剧情由人工文本提供 |
+| 浏览器审阅 | 三镜头视频加载成功，起点0/2/5秒；证据锚点跳转通过 | 观察/推断与原文位置可见；不证明真实内容质量 |
+| 实际tgz安装 | 通过 | 独立consumer只装生产依赖，新导入export与编译CLI可运行；旧默认Demo及draft Demo可运行 |
+
+独立正例由验收者另行生成4秒/100帧色块与测试音，包含BOM、CRLF、中文和emoji的剧本/SRT，以及明确不确定的角色关系；没有用生产演示构造器代替独立输入。首轮87项通过，补充CLI与媒体轨道边界后99项通过，同一实现无需修复。Owner另做浏览器检查，两类证据分开记录。
+
+三个not_run组分别是：自动识片/ASR/语义理解；源目标预演渲染、目标生成和真实质量；新DSH阶段、可信制作确认和最终发布许可。DP-N7完整链路仍待后续实现。文件只读及拒绝覆盖不等于防篡改存储，也未验证断电恢复或恶意并发文件系统攻击。
 
 ## 新工作流 draft 验收（2026-09-17 / 18）
 
@@ -74,4 +90,12 @@ npm run demo
 node tests/acceptance/workflow-draft.mjs . .runtime/independent-workflow "$(git rev-parse HEAD)"
 node tests/acceptance/episode-revisions.mjs . .runtime/independent-episode "$(git rev-parse HEAD)"
 node tests/acceptance/recovery.mjs . .runtime/independent-recovery "$(git rev-parse HEAD)"
+```
+
+本地导入独立验收需要FFmpeg及ffprobe（或通过环境变量指定工具路径），每轮使用新目录：
+
+```bash
+FFMPEG_BIN="${DRAMAPILOT_FFMPEG:-ffmpeg}" \
+FFPROBE_BIN="${DRAMAPILOT_FFPROBE:-ffprobe}" \
+node tests/acceptance/assisted-ingest.mjs . .runtime/independent-ingest "$(git rev-parse HEAD)"
 ```

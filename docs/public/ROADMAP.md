@@ -1,6 +1,6 @@
 # 开发路线图与任务
 
-更新：2026-09-18。**v0.3是新链路的产品方案版本；当前公开软件仍为0.2.0工程预览，运行契约0.2.1，DSH固定0.1.5-rc.2。** DP-N1已有独立实验契约实现，其余任务按下表推进；元数据校验不代表全链路通过。
+更新：2026-09-23。**v0.3是新链路的产品方案版本；当前公开软件仍为0.2.0工程预览，运行契约0.2.1，DSH固定0.1.5-rc.2。** DP-N1已有独立实验契约实现，其余任务按下表推进；元数据校验不代表全链路通过。
 
 ## 下一里程碑
 
@@ -17,8 +17,8 @@
 | GitHub任务 | 交付 | 责任角色 | 前置依赖 | 状态 |
 |---|---|---|---|---|
 | [DP-N1 · #1](https://github.com/tanweiping1012-source/DramaPilot/issues/1) | 新工作流契约草案与0.2.1迁移边界 | A + Owner | 独立153项通过，完整链路仍待后续任务 | done（仅draft） |
-| [DP-N2 · #2](https://github.com/tanweiping1012-source/DramaPilot/issues/2) | 人工辅助导入源资产包与可定位证据 | A | [DP-N1](https://github.com/tanweiping1012-source/DramaPilot/issues/1) | ready；下一项 |
-| [DP-N3 · #3](https://github.com/tanweiping1012-source/DramaPilot/issues/3) | 目标文化改编与独立目标分镜 | A | [DP-N1](https://github.com/tanweiping1012-source/DramaPilot/issues/1)、[DP-N2](https://github.com/tanweiping1012-source/DramaPilot/issues/2) | planned；待前置实现 |
+| [DP-N2 · #2](https://github.com/tanweiping1012-source/DramaPilot/issues/2) | 人工辅助导入源资产包与可定位证据 | A | [DP-N1](https://github.com/tanweiping1012-source/DramaPilot/issues/1) | done（本地人工辅助导入） |
+| [DP-N3 · #3](https://github.com/tanweiping1012-source/DramaPilot/issues/3) | 目标文化改编与独立目标分镜 | A | [DP-N1](https://github.com/tanweiping1012-source/DramaPilot/issues/1)、[DP-N2](https://github.com/tanweiping1012-source/DramaPilot/issues/2) | ready；下一项 |
 | [DP-N4 · #4](https://github.com/tanweiping1012-source/DramaPilot/issues/4) | 本地2D白模预演与目标对白时长检查 | B | [DP-N1](https://github.com/tanweiping1012-source/DramaPilot/issues/1)、[DP-N2](https://github.com/tanweiping1012-source/DramaPilot/issues/2)、[DP-N3](https://github.com/tanweiping1012-source/DramaPilot/issues/3) | planned；可先准备自编样例 |
 | [DP-N5 · #5](https://github.com/tanweiping1012-source/DramaPilot/issues/5) | 制作包冻结、可信确认与依赖失效 | A + Owner | [DP-N1](https://github.com/tanweiping1012-source/DramaPilot/issues/1)、[DP-N3](https://github.com/tanweiping1012-source/DramaPilot/issues/3) | planned；待前置实现 |
 | [DP-N6 · #6](https://github.com/tanweiping1012-source/DramaPilot/issues/6) | DSH新链路阶段编排与审阅交互 | A | [DP-N2](https://github.com/tanweiping1012-source/DramaPilot/issues/2)、[DP-N3](https://github.com/tanweiping1012-source/DramaPilot/issues/3)、[DP-N4](https://github.com/tanweiping1012-source/DramaPilot/issues/4)、[DP-N5](https://github.com/tanweiping1012-source/DramaPilot/issues/5) | planned；待前置实现 |
@@ -32,7 +32,7 @@ DP-N5在某镜头需要白模时，还需DP-N4提供对应的有效预演；不�
 
 ## Owner接下来要做什么
 
-1. DP-N1独立draft已通过固定提交验收，下一项推进DP-N2本地文件与人工资料导入。旧0.2.1保持冻结；接入运行前继续评审契约变化。
+1. DP-N1独立draft及DP-N2本地人工辅助导入已通过固定提交验收，下一项推进DP-N3独立目标分镜的保存与制作请求映射。旧0.2.1保持冻结；接入运行前继续评审契约变化。
 2. 按源资产、目标分镜、预演和确认的依赖集成，维护任务状态及阻塞；源事实不被目标改写覆盖。
 3. 给C固定集成提交与完整有效样例，核对独立结果、0.2.1兼容、恢复和局部修复。
 4. 发布经验证的新工程包和演示，继续公开实际能力与未验证项；本次draft随最新源码提供，保留旧工程预览Release不变。

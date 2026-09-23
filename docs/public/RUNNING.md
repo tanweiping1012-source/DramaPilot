@@ -1,6 +1,6 @@
 # 本地运行
 
-当前版本只执行项目自带的离线 fixture/mock。fixture 是固定测试素材，mock 是模拟供应商：它们可验证软件行为，不生成真实演员或英语表演。
+默认Demo执行项目自带的离线 fixture/mock；新增本地人工辅助导入可读取创作者自己的本地视频和资料，不上传素材。fixture是测试素材，mock是模拟供应商：它们可验证软件行为，不生成真实演员或英语表演。
 
 ## 环境
 
@@ -46,6 +46,17 @@ DRAMAPILOT_FIXTURE_DIR=.runtime/color-fixture npm run demo -- .runtime/video-dem
 查看 `.runtime/video-demo/review.html`、`demo.json` 和 `fixture-episode-r1.mp4`。字幕在同目录，具体文件由 demo 摘要/目录确认。测试片为 7 秒、25fps、175 帧；只有色块和测试音，不含英文配音。
 
 fixture 生成器拒绝覆盖已存在的视频。运行失败后保留该目录，换新目录重试，避免把不同尝试的文件混为同一次成功结果。合成采用独有临时文件，完整探测/解码后再写最终路径。
+
+## 源资料导入
+
+这是独立本地CLI，还不是DSH的新工具。需要ffprobe；只有生成测试视频才额外需要FFmpeg。
+
+```bash
+npm run demo:ingest -- .runtime/color-fixture/fixture-only.mp4 .runtime/my-source-demo
+npm run ingest:source -- .runtime/my-source-demo/input-manifest.json . .runtime/another-source-import
+```
+
+两个命令分别演示自编资料和从明确清单再次导入；输出目录都必须尚不存在。支持MP4/MOV、UTF-8剧本和SRT，保留源文件快照、实际hash及媒体参数、人工证据及未知项。语义和说话人不由程序猜测。清单/API/限制见[人工辅助导入](ASSISTED_INGEST.md)。
 
 ## DSH 协议验证
 
